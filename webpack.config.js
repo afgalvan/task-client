@@ -6,7 +6,7 @@ const TerserPlugin = require('terser-webpack-plugin');
 
 module.exports = {
   entry: {
-    app: './src/index.js',
+    app: './src/app/index.js',
   },
   output: {
     path: path.resolve(__dirname, 'build'),
@@ -51,7 +51,7 @@ module.exports = {
 
   plugins: [
     new HtmlWebpackPlugin({
-      template: './index.html',
+      template: './src/public/index.html',
       filename: 'index.html',
       minify: {
         collapseWhitespace: true,

@@ -1,5 +1,5 @@
-import './styles/main.css';
-import * as taskController from './app/controllers/task.controller';
+import '../styles/main.css';
+import * as taskController from './controllers/task.controller';
 
 const main = async (): Promise<void> => {
   taskController.loadTasksPreviews();
