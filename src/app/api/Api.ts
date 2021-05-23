@@ -1,11 +1,10 @@
 import { Task } from '../models/Task';
 
-
 class Api {
-
   private API_URL;
 
   constructor() {
+    //this.API_URL = 'https://spring-task-api.herokuapp.com/';
     this.API_URL = 'http://localhost:8081';
   }
 
