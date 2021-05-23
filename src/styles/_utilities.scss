@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Karla:wght@400;700&display=swap');
+
+@function rem($pixels) {
+  @return ($pixels * 1px) / 16px * 1rem;
+}
+
+@mixin animateAll($time, $transitionStyle) {
+  transition: all $time $transitionStyle;
+}
+
+@mixin defaultTransition {
+  @include animateAll(0.2s, ease-in);
+}
+
+// Font ========================================================================
+$karla: 'Karla', sans-serif;
+$defaultFont: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell,
+  'Open Sans', 'Helvetica Neue', sans-serif;
+$fontSize: rem(24);
+// Color schema ================================================================
+$primaryColor: #4a2a82;
+$secondaryColor: hsl(257, 45%, 43%);
+$buttonColor: hsl(258, 82%, 69%);
+$background: #222526;
+$primaryDark: #181a1b;
+$taskColor: #2f3131;
+$fontColor: hsl(218, 22%, 67%);
+
+// misc ========================================================================
+$borderRadius: rem(8);
+
+body {
+  margin: 0;
+  padding: 0;
+  text-rendering: optimizeSpeed;
+  background-color: $background;
+  font-family: $defaultFont;
+  color: white;
+}

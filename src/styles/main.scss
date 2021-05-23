@@ -1,0 +1,30 @@
+@import './utilities';
+@import './header';
+@import './todo-list';
+@import './task-zone';
+@import './add-task';
+
+.main-content {
+  box-sizing: border-box;
+  margin-top: $headerHeight;
+  display: flex;
+  height: 80vh;
+  width: 100%;
+}
+
+@media (max-width: rem(750)) {
+  .main-content {
+    #task-zone {
+      width: 100%;
+
+      .task {
+        width: 70%;
+      }
+    }
+
+    #todo-list {
+      transform: translateX(-100%);
+      position: fixed;
+    }
+  }
+}

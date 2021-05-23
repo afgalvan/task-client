@@ -1,0 +1,95 @@
+$headerHeight: rem(65);
+
+@mixin headerSection($width, $align) {
+  margin-top: auto;
+  margin-bottom: auto;
+  width: $width;
+  text-align: $align;
+
+  .item {
+    @include defaultTransition();
+    font-size: $fontSize;
+    color: white;
+    text-decoration: none;
+    padding: rem(5);
+    border-radius: 10%;
+
+    &:hover {
+      background-color: $secondaryColor;
+      cursor: pointer;
+    }
+  }
+}
+
+.header {
+  top: 0;
+  z-index: 300;
+  position: fixed;
+  font-family: $defaultFont;
+  width: 100%;
+  height: $headerHeight;
+  display: flex;
+  background-color: $primaryColor;
+  box-shadow: 0 rem(2) rem(25) rgba($color: #000000, $alpha: 0.3);
+  box-sizing: border-box;
+
+  .title {
+    @include headerSection(40%, left);
+    padding-left: 5%;
+
+    .item {
+      padding-top: rem(10);
+      padding-bottom: rem(10);
+    }
+
+    .more-options {
+      display: none;
+    }
+  }
+
+  .options {
+    @include headerSection(60%, right);
+    padding-right: 5%;
+
+    .item {
+      box-sizing: border-box;
+      margin-right: 4%;
+    }
+
+    .add-task-button {
+      display: inline-flex;
+      align-items: center;
+      padding-bottom: rem(40);
+      box-sizing: border-box;
+      outline: none;
+      border: none;
+      margin-top: 10px;
+      background-color: $secondaryColor;
+      width: rem(45);
+      height: rem(10);
+      border-radius: 100%;
+      text-align: center;
+
+      &:hover {
+        background-color: $buttonColor;
+        box-shadow: 0 rem(5) rem(10) rgba($color: #000000, $alpha: 0.3);
+      }
+    }
+  }
+}
+
+@media (max-width: rem(750)) {
+  .header {
+    .title {
+      .more-options {
+        display: inline-block !important;
+      }
+    }
+  }
+
+  .options {
+    a {
+      display: none;
+    }
+  }
+}
