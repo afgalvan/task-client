@@ -1,32 +1,29 @@
-@mixin cardBox {
-  @include animateAll(0.4s, linear);
-
+.cardBox {
+  @include animateAll(0.2s, ease-out);
   background-color: $taskColor;
   z-index: 2;
   border-radius: 10%;
   height: 80%;
   width: 50%;
   box-shadow: 0 0 rem(18) rgba($color: #000000, $alpha: 0.3);
-  &:hover {
-    box-shadow: 0 rem(10) rem(18) rgba($color: #000000, $alpha: 0.5);
-  }
 }
 
 #task-zone {
   display: grid;
-  place-items: center;
   z-index: 1;
   height: 100%;
   width: 75%;
+  place-items: center;
   background-color: $background;
 
   .task {
-    @include cardBox();
-    transition: all 0.2s ease-out;
+    @extend .cardBox;
     cursor: pointer;
+    transform: scale(1);
 
     &:hover {
-      transform: scale(105%);
+      box-shadow: 0 rem(10) rem(18) rgba($color: #000000, $alpha: 0.5);
+      transform: scale(1.02);
     }
   }
 }

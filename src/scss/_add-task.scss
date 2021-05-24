@@ -1,0 +1,8 @@
+#add-task-form {
+  @include animateAll(0.4s, linear);
+  @extend .cardBox;
+
+  &:hover {
+    box-shadow: 0 rem(10) rem(18) rgba($color: #000000, $alpha: 0.5);
+  }
+}

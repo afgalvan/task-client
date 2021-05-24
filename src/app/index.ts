@@ -1,9 +1,10 @@
-import '../styles/main.css';
+import '../scss/main.css';
 import taskController from './controllers/task.controller';
 
 const main = (): void => {
   taskController.loadTasksPreviews();
   taskController.addNewTask();
+  taskController.taskListToggle();
 };
 
 if (document.readyState == 'loading') {

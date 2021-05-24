@@ -1,6 +1,8 @@
 $headerHeight: rem(65);
 
 @mixin headerSection($width, $align) {
+  display: flex;
+  align-items: center;
   margin-top: auto;
   margin-bottom: auto;
   width: $width;
@@ -37,6 +39,16 @@ $headerHeight: rem(65);
     @include headerSection(40%, left);
     padding-left: 5%;
 
+    .title-text {
+      &:hover {
+        background-color: $primaryColor;
+      }
+
+      &::selection {
+        color: white;
+      }
+    }
+
     .item {
       padding-top: rem(10);
       padding-bottom: rem(10);
@@ -50,6 +62,7 @@ $headerHeight: rem(65);
   .options {
     @include headerSection(60%, right);
     padding-right: 5%;
+    justify-content: flex-end;
 
     .item {
       box-sizing: border-box;
@@ -60,7 +73,6 @@ $headerHeight: rem(65);
       box-sizing: border-box;
       outline: none;
       border: none;
-      margin-top: 10px;
       background-color: $secondaryColor;
       width: rem(40);
       height: rem(40);

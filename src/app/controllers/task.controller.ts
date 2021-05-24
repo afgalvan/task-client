@@ -1,5 +1,5 @@
 import api from '../api/Api';
-import { sleep } from '../helpers/helpers';
+import { restore, sleep } from '../helpers/helpers';
 import { Task } from '../models/Task';
 
 class TaskController {
@@ -17,14 +17,14 @@ class TaskController {
         taskView.addEventListener('click', () => this.peekTask(task.id));
       });
     });
-  }
+  };
 
   public addNewTask = (): void => {
     const addTaskButton = <HTMLInputElement>document.querySelector('#add-task');
     addTaskButton.addEventListener('click', () => {
       this.registerTask();
     });
-  }
+  };
   private renderTask = (task: Task): string => {
     return `
     <div class="task">
@@ -61,6 +61,27 @@ class TaskController {
       taskZone.innerHTML = '';
     }
     taskZone.innerHTML = this.renderTaskForm();
+  };
+
+  public taskListToggle = (): void => {
+    const taskList = <HTMLDivElement>document.querySelector('#todo-list');
+    const curtain = <HTMLDivElement>document.querySelector('#curtain');
+    const todoToggle = <HTMLSpanElement>document.querySelector('#todo-toggle');
+
+    todoToggle.addEventListener('click', () => {
+      taskList.style.width = '55%';
+
+      if (taskList.style.transform === 'translateX(-100%)') {
+        curtain.style.display = 'grid';
+        taskList.style.transform = 'translateX(0)';
+        return;
+      }
+
+      curtain.style.display = 'none';
+      taskList.style.transform = 'translateX(-100%)';
+    });
+
+    restore();
   };
 }
 

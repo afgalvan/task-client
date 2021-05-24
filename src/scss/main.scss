@@ -3,6 +3,7 @@
 @import './todo-list';
 @import './task-zone';
 @import './add-task';
+@import './curtain';
 
 .main-content {
   box-sizing: border-box;
@@ -17,7 +18,7 @@
     #task-zone {
       width: 100%;
 
-      .task {
+      .cardBox {
         width: 70%;
       }
     }

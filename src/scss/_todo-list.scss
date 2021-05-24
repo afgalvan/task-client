@@ -18,9 +18,6 @@
 
     &:hover {
       background-color: rgb(14, 14, 14);
-    }
-
-    &::selection {
       color: $buttonColor;
     }
   }
