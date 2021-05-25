@@ -1,7 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Karla:wght@400;700&display=swap');
+@use 'sass:math';
+@import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap');
 
-@function rem($pixels) {
-  @return ($pixels * 1px) / 16px * 1rem;
+@function rem($rawDimension) {
+  $pixels: $rawDimension * 1px;
+  $remEquivalents: math.div($pixels, 16px);
+  @return $remEquivalents * 1rem;
 }
 
 @mixin animateAll($time, $transitionStyle) {
@@ -13,9 +16,8 @@
 }
 
 // Font ========================================================================
-$karla: 'Karla', sans-serif;
-$defaultFont: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell,
-  'Open Sans', 'Helvetica Neue', sans-serif;
+$kumbh: 'Kumbh Sans', sans-serif;
+$defaultFont: $kumbh;
 $fontSize: rem(24);
 // Color schema ================================================================
 $primaryColor: #4a2a82;
@@ -28,12 +30,4 @@ $fontColor: hsl(218, 22%, 67%);
 
 // misc ========================================================================
 $borderRadius: rem(8);
-
-body {
-  margin: 0;
-  padding: 0;
-  text-rendering: optimizeSpeed;
-  background-color: $background;
-  font-family: $defaultFont;
-  color: white;
-}
+$headerHeight: rem(65);

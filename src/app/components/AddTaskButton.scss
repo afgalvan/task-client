@@ -1,0 +1,14 @@
+@import './Button';
+
+#add-task {
+  @extend Button;
+  background-color: $secondaryColor;
+  width: rem(40);
+  height: rem(40);
+  border-radius: 100%;
+
+  &:hover {
+    background-color: $buttonColor;
+    box-shadow: 0 rem(5) rem(10) rgba($color: #000000, $alpha: 0.3);
+  }
+}

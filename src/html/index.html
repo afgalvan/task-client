@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="shortcut icon" href="../assets/images/favicon.png" type="image/x-icon" />
+  <title>Task app</title>
+</head>
+
+<body>
+  <!-- Header -->
+  <header id="header" class="header">
+    <h1 class="header__title">
+      <input id="todo-toggle" type="button"
+        class="header__title__item header__title__options" value="&#9776;"
+        title="Toggle List" />
+      <span class="header__title__text header__title__item">Task app</span>
+    </h1>
+    <div class="header__options">
+      <input id="add-task" type="button"
+        class="header__options__add-task-button header__options__item"
+        title="Add new task" value="+">
+      </input>
+    </div>
+  </header>
+
+  <!-- Main content -->
+  <main class="main">
+    <div id="todo-list" class="main__todo-list"></div>
+    <div id="task-zone" class="main__task-zone"></div>
+    <div id="curtain" class="main__curtain"></div>
+  </main>
+</body>
+
+</html>

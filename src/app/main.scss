@@ -1,0 +1,18 @@
+@import './utilities';
+
+body {
+  margin: 0;
+  padding: 0;
+  text-rendering: optimizeSpeed;
+  background-color: $background;
+  font-family: $defaultFont;
+  color: white;
+}
+
+.main-content {
+  box-sizing: border-box;
+  margin-top: $headerHeight;
+  display: flex;
+  height: 80vh;
+  width: 100%;
+}

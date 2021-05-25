@@ -1,11 +1,11 @@
-import { Task } from '../models/Task';
+import { Task } from '@models/Task';
+import { API_URL } from '@config/config';
 
 class Api {
   private API_URL;
 
   constructor() {
-    //this.API_URL = 'https://spring-task-api.herokuapp.com/';
-    this.API_URL = 'http://localhost:8081';
+    this.API_URL = API_URL;
   }
 
   getTasks = async (): Promise<Task[]> => {

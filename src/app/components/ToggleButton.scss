@@ -1,0 +1,10 @@
+@import './Button';
+
+#todo-toggle {
+  @extend Button;
+  background-color: $primaryColor;
+
+  &:hover {
+    background-color: $secondaryColor;
+  }
+}
