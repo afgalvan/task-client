@@ -1,4 +1,4 @@
-$headerHeight: rem(65);
+@import '../utilities';
 
 @mixin headerSection($width, $align) {
   display: flex;
@@ -35,70 +35,50 @@ $headerHeight: rem(65);
   box-shadow: 0 rem(2) rem(25) rgba($color: #000000, $alpha: 0.3);
   box-sizing: border-box;
 
-  .title {
+  &__title {
     @include headerSection(40%, left);
     padding-left: 5%;
 
-    .title-text {
+    &__item {
+      @extend .item;
+      padding-top: rem(10);
+      padding-bottom: rem(10);
+    }
+
+    &__options {
+      display: none;
+    }
+
+    &__text {
       &:hover {
-        background-color: $primaryColor;
+        background-color: $primaryColor !important;
       }
 
       &::selection {
         color: white;
       }
     }
-
-    .item {
-      padding-top: rem(10);
-      padding-bottom: rem(10);
-    }
-
-    .more-options {
-      display: none;
-    }
   }
 
-  .options {
+  &__options {
     @include headerSection(60%, right);
     padding-right: 5%;
     justify-content: flex-end;
 
-    .item {
+    &__item {
+      @extend .item;
       box-sizing: border-box;
       margin-right: 4%;
-    }
-
-    .add-task-button {
-      box-sizing: border-box;
-      outline: none;
-      border: none;
-      background-color: $secondaryColor;
-      width: rem(40);
-      height: rem(40);
-      border-radius: 100%;
-      text-align: center;
-
-      &:hover {
-        background-color: $buttonColor;
-        box-shadow: 0 rem(5) rem(10) rgba($color: #000000, $alpha: 0.3);
-      }
     }
   }
 }
 
-@media (max-width: rem(750)) {
+@media (max-width: rem(1050)) {
   .header {
-    .title {
-      .more-options {
+    &__title {
+      &__options {
         display: inline-block !important;
       }
-    }
-  }
-
-  .options {
-    a {
-      display: none;
     }
   }
 }
