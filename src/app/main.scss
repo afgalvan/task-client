@@ -9,10 +9,25 @@ body {
   color: white;
 }
 
-.main-content {
+.main {
   box-sizing: border-box;
   margin-top: $headerHeight;
   display: flex;
   height: 80vh;
   width: 100%;
+}
+
+#task-zone {
+  display: grid;
+  z-index: 1;
+  height: 100%;
+  width: 75%;
+  place-items: center;
+  background-color: $background;
+}
+
+@media (max-width: rem(1050)) {
+  #task-zone {
+    width: 100%;
+  }
 }

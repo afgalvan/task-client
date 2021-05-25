@@ -1,8 +1,10 @@
-import header from './Header';
+import { Header } from './Header';
+import { TodoList } from './TodoList';
 
 class App {
   public init = (): void => {
-    header.init();
+    new Header('header').render();
+    new TodoList('todo-list').render();
   };
 }
 

@@ -1,0 +1,74 @@
+@import './CardBox';
+@import './Button';
+
+.AddTaskForm {
+  @extend CardBox;
+  display: grid;
+  place-items: center;
+
+  &:hover {
+    box-shadow: 0 rem(10) rem(18) rgba($color: #000000, $alpha: 0.5);
+  }
+
+  form {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    width: 75%;
+    height: 80%;
+
+    label {
+      font-family: monospace;
+      font-weight: bold;
+      font-size: rem(16);
+      margin-top: rem(20);
+      margin-bottom: rem(5);
+    }
+
+    textarea,
+    input {
+      border: none;
+      color: whitesmoke;
+      font-size: rem(16);
+      font-family: monospace;
+      width: 100%;
+      outline: none;
+      resize: none;
+    }
+
+    textarea,
+    input[type='text'] {
+      margin-bottom: rem(20);
+      background: transparent;
+    }
+
+    textarea {
+      border: rem(1) solid rgb(151, 151, 151);
+    }
+
+    input {
+      border-bottom: rem(1) solid rgb(151, 151, 151);
+      height: rem(35);
+    }
+
+    input[type='submit'] {
+      @extend Button;
+      width: 80%;
+      align-self: center;
+      font-family: monospace;
+      background-color: $secondaryColor;
+      border-radius: rem(20);
+      font-size: rem(18);
+      margin-top: rem(5);
+      margin-bottom: rem(8);
+
+      &:hover {
+        background-color: $buttonColor;
+        box-shadow: 0 rem(5) rem(10) rgba($color: #000000, $alpha: 0.3);
+      }
+    }
+  }
+}
+
+@media (max-width: rem(1050)) {
+}

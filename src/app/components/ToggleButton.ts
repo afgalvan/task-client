@@ -1,12 +1,20 @@
 import { Button } from './Button';
 import { Component } from './Component';
+import { singleton } from './Singleton';
+import { TodoList } from './TodoList';
 import './ToggleButton.scss';
 
+@singleton
 export class ToggleButton extends Component<HTMLInputElement> implements Button {
   public onClick(callback: () => any): void {
-    super.component?.addEventListener('click', callback);
+    this.component?.addEventListener('click', callback);
   }
 
-  public init(): void {
-  }
+  public render = (): void => {
+    this.onClick(() => {
+      const todoList = new TodoList('todo-list');
+      todoList.toggle();
+      todoList.restore();
+    });
+  };
 }

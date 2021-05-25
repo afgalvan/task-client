@@ -1,9 +1,11 @@
 export abstract class Component<T extends HTMLElement> {
   component: T;
+  id: string;
 
   constructor(elementId: string) {
-    this.component = <T>document.getElementById(elementId);
+    this.id = elementId;
+    this.component = <T>document.querySelector(`#${elementId}`);
   }
 
-  public abstract init(): void;
+  public abstract render: () => void;
 }

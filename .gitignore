@@ -1,4 +1,4 @@
-!build/**
+build
 node_modules
 .vscode
 
@@ -106,3 +106,5 @@ dist
 
 # TernJS port file
 .tern-port
+
+.vercel

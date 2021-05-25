@@ -13,11 +13,12 @@
     "esModuleInterop": true,
     "resolveJsonModule": true,
     "skipLibCheck": true,
+    "experimentalDecorators": true,
     "forceConsistentCasingInFileNames": true,
     "baseUrl": "./",
     "paths": {
       "@app/*": ["src/app/*"],
-      "@api/*": ["src/app/api/*"],
+      "@controllers/*": ["src/app/controllers/*"],
       "@config/*": ["src/app/config/*"],
       "@components/*": ["src/app/components/*"],
       "@helpers/*": ["src/app/helpers/*"],

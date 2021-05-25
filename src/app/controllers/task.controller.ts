@@ -1,5 +1,5 @@
-import { Task } from '@models/Task';
-import { API_URL } from '@config/config';
+import { TaskModel } from '../models/TaskModel';
+import { API_URL } from '../config/config';
 
 class Api {
   private API_URL;
@@ -8,8 +8,8 @@ class Api {
     this.API_URL = API_URL;
   }
 
-  getTasks = async (): Promise<Task[]> => {
-    let tasks = new Array<Task>();
+  getTasks = async (): Promise<TaskModel[]> => {
+    let tasks = new Array<TaskModel>();
 
     await fetch(`${this.API_URL}/tasks`)
       .then((response) => response.json())
@@ -19,8 +19,8 @@ class Api {
     return tasks;
   };
 
-  getTaskById = async (id: number): Promise<Task> => {
-    let task = new Task();
+  getTaskById = async (id: number): Promise<TaskModel> => {
+    let task = new TaskModel();
 
     await fetch(`${this.API_URL}/tasks/${id}`)
       .then((response) => response.json())

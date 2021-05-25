@@ -1,0 +1,12 @@
+@import './CardBox.scss';
+
+.Task {
+  @extend CardBox;
+  cursor: pointer;
+  transform: scale(1);
+
+  &:hover {
+    box-shadow: 0 rem(10) rem(18) rgba($color: #000000, $alpha: 0.5);
+    transform: scale(1.015);
+  }
+}

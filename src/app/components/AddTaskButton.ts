@@ -1,11 +1,22 @@
 import { Button } from './Button';
 import { Component } from './Component';
+import { singleton } from './Singleton';
+import { AddTaskForm } from './AddTaskForm';
 import './AddTaskButton.scss';
 
+@singleton
 export class AddTaskButton extends Component<HTMLInputElement> implements Button {
-  public onClick(callback: () => any): void {
-    super.component?.addEventListener('click', callback);
+  constructor(elementId: string) {
+    super(elementId);
   }
 
-  public init(): void {}
+  public onClick(callback: () => void): void {
+    this.component?.addEventListener('click', callback);
+  }
+
+  public render = (): void => {
+    this.onClick(() => {
+      new AddTaskForm().render();
+    });
+  }
 }

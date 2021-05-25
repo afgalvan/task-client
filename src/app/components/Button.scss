@@ -1,6 +1,8 @@
 @import '../utilities';
 
 Button {
+  @include defaultTransition();
+  cursor: pointer;
   box-sizing: border-box;
   outline: none;
   border: none;
