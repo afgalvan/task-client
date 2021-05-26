@@ -42,13 +42,22 @@ export class TodoList extends Component<HTMLDivElement> {
 
     if (transform === 'translateX(-100%)' || !transform) {
       this.curtain.style.display = 'grid';
+      this.curtain.addEventListener('click', () => this.hide());
       this.component.style.transform = 'translateX(0)';
       return (this.visible = true);
     }
 
-    this.curtain.style.display = 'none';
-    this.component.style.transform = 'translateX(-100%)';
-    return (this.visible = false);
+    return this.hide();
+  };
+
+  public hide = (): boolean => {
+    if (this.visible && !this.windowMedia.matches) {
+      this.curtain.style.display = 'none';
+      this.component.style.transform = 'translateX(-100%)';
+      return (this.visible = false);
+    }
+
+    return (this.visible = true);
   };
 
   restore = (): void => {
