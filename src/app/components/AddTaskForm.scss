@@ -3,7 +3,8 @@
 
 .AddTaskForm {
   @extend CardBox;
-  display: grid;
+  display: flex;
+  flex-direction: column;
   place-items: center;
 
   &:hover {
@@ -12,8 +13,8 @@
 
   form {
     display: flex;
-    justify-content: space-between;
     flex-direction: column;
+    align-content: center;
     width: 75%;
     height: 80%;
 
@@ -59,7 +60,7 @@
       background-color: $secondaryColor;
       border-radius: rem(20);
       font-size: rem(18);
-      margin-top: rem(5);
+      margin-top: rem(18);
       margin-bottom: rem(8);
 
       &:hover {

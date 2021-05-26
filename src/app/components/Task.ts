@@ -28,7 +28,8 @@ export class Task extends Component<HTMLDivElement> {
     return html`
     <div class="Task">
       <div class="options">
-        <span class="close">x</span>
+        <span class="close"
+        @click=${() => render(document.createElement('div'), this.taskZone)}>x</span>
       </div>
 
       <h3 class="task-title" id="task-title">${task.title}</h3>

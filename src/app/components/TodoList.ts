@@ -7,7 +7,10 @@ import './TodoList.scss';
 @singleton
 export class TodoList extends Component<HTMLDivElement> {
   public visible?: boolean;
-  public curtain = <HTMLDivElement>document.querySelector('#curtain');
+
+  windowMedia = window.matchMedia('(min-width: 1050px)');
+
+  curtain = <HTMLDivElement>document.querySelector('#curtain');
 
   public render = (): void => {
     api.getTasks().then((tasks) => {
@@ -25,7 +28,12 @@ export class TodoList extends Component<HTMLDivElement> {
   };
 
   public peekTask = (id: number): void => {
-    api.getTaskById(id).then((task) => new Task(task).render());
+    api.getTaskById(id).then((task) => {
+      new Task(task).render();
+      if (!this.windowMedia.matches) {
+        this.toggle();
+      }
+    });
   };
 
   public toggle = (): boolean => {
@@ -44,10 +52,8 @@ export class TodoList extends Component<HTMLDivElement> {
   };
 
   restore = (): void => {
-    const windowMedia = window.matchMedia('(min-width: 1050px)');
-
-    windowMedia.addEventListener('change', () => {
-      if (windowMedia.matches) {
+    this.windowMedia.addEventListener('change', () => {
+      if (this.windowMedia.matches) {
         this.component.style.width = '25%';
         this.component.style.transform = 'translateX(0)';
         this.component.style.position = 'static';

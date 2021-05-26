@@ -29,6 +29,21 @@ class Api {
 
     return task;
   };
+
+  postTask = async (formData: FormData): Promise<TaskModel> => {
+    const request = new Request(`${this.API_URL}/tasks/`, {
+      method: 'POST',
+      body: formData,
+    });
+
+    let responseTask = new TaskModel();
+    await fetch(request)
+      .then((response) => response.json())
+      .then((data) => (responseTask = data))
+      .catch(() => console.error('Unable to connect to server'));
+
+    return responseTask;
+  };
 }
 
 const api = new Api();
