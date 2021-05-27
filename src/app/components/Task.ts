@@ -23,12 +23,12 @@ export class Task extends Component<HTMLDivElement> {
   };
 
   private buildTask = (task: TaskModel): TemplateResult => {
-    const state = task.state ? '✅' : '❕';
+    const state = task.state ? '✅' : '⭕';
     // prettier-ignore
     return html`
     <div class="Task">
       <div class="options">
-        <span class="close"
+        <span class="close" title="Close task"
         @click=${() => render(document.createElement('div'), this.taskZone)}>x</span>
       </div>
 
@@ -40,8 +40,8 @@ export class Task extends Component<HTMLDivElement> {
       </p>
 
       <div class="update">
-        <span class="delete">🗑</span>
-        <span class="done">✅</span>
+        <span class="delete" title="Delete task">🗑</span>
+        <span class="done" title="Mark task as done">✅</span>
       </div>
     </div>`;
   };

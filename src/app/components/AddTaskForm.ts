@@ -18,7 +18,7 @@ export class AddTaskForm extends Component<HTMLFormElement> {
     return html`
     <div class="AddTaskForm">
       <div class="options">
-        <span class="close"
+        <span class="close" title="Close form"
         @click=${() => render(document.createElement('div'), this.taskZone)}>x</span>
       </div>
 
@@ -27,11 +27,11 @@ export class AddTaskForm extends Component<HTMLFormElement> {
         <input type="text" name="title" placeholder="Enter a task title">
 
         <label for="content">Description</label>
-        <input type="text" name="content" placeholder="Enter a task description">
+        <textarea type="text" name="content" placeholder="Enter a task description"></textarea>
         <input type="hidden" name="state" value="false">
         <input type="hidden" name="priority" value="1">
 
-        <input type="submit" value="Save task">
+        <input type="submit" value="Save task" title="Save task to the list">
       </form>
     </div>`;
   };
@@ -41,8 +41,10 @@ export class AddTaskForm extends Component<HTMLFormElement> {
     this.component.addEventListener('submit', (e: Event) => {
       e.preventDefault();
       const formJson = Object.fromEntries(new FormData(this.component).entries());
-      api.postTask(formJson).then((response) => console.log(response));
-      new TodoList().refresh();
+      api.postTask(formJson).then(() => {
+        new TodoList().refresh();
+        this.component.reset();
+      });
     });
   };
 
