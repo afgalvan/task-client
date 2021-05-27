@@ -1,8 +1,9 @@
 import { html, render, TemplateResult } from 'lit-html';
 import { Component } from './Component';
 import { singleton } from './Singleton';
-// import api from '../controllers/task.controller';
+import api from '../controllers/task.controller';
 import './AddTaskForm.scss';
+import { TodoList } from './TodoList';
 
 @singleton
 export class AddTaskForm extends Component<HTMLFormElement> {
@@ -36,21 +37,12 @@ export class AddTaskForm extends Component<HTMLFormElement> {
   };
 
   sendForm = (): void => {
-    this.reload();
-    console.log('Gei');
-    const component = <HTMLFormElement>document.getElementById('add-task-form');
-
-    if (component !== null) {
-      const formData = new FormData(component);
-      for (let key of formData.keys()) {
-        console.log(key);
-      }
-    }
-
+    this.reloadProps();
     this.component.addEventListener('submit', (e: Event) => {
       e.preventDefault();
-
-      //api.postTask(formData).then((response) => console.log(response));
+      const formJson = Object.fromEntries(new FormData(this.component).entries());
+      api.postTask(formJson).then((response) => console.log(response));
+      new TodoList().refresh();
     });
   };
 

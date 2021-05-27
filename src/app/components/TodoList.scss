@@ -12,6 +12,7 @@
 #todo-list {
   @include animateAll(0.2s, ease-out);
   display: flex;
+  overflow-y: auto;
   flex-direction: column;
   text-align: center;
   z-index: 3;

@@ -7,7 +7,7 @@ export abstract class Component<T extends HTMLElement> {
     this.component = <T>document.querySelector(`#${elementId}`);
   }
 
-  public reload = (): void => {
+  public reloadProps = (): void => {
     this.component = <T>document.querySelector(`#${this.id}`);
   }
 

@@ -16,7 +16,7 @@ class Api {
       .then((data) => (tasks = data))
       .catch(() => console.error('Unable to connect to server'));
 
-    return tasks;
+    return tasks.reverse();
   };
 
   getTaskById = async (id: number): Promise<TaskModel> => {
@@ -30,10 +30,13 @@ class Api {
     return task;
   };
 
-  postTask = async (formData: FormData): Promise<TaskModel> => {
+  postTask = async (task: TaskModel): Promise<TaskModel> => {
     const request = new Request(`${this.API_URL}/tasks/`, {
       method: 'POST',
-      body: formData,
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(task),
     });
 
     let responseTask = new TaskModel();

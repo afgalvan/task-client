@@ -1,3 +1,4 @@
+import { html, render } from 'lit-html';
 import api from '../controllers/task.controller';
 import { Component } from './Component';
 import { singleton } from './Singleton';
@@ -12,13 +13,17 @@ export class TodoList extends Component<HTMLDivElement> {
 
   curtain = <HTMLDivElement>document.querySelector('#curtain');
 
+  constructor(id: string = 'todo-list') {
+    super(id);
+  }
+
   public render = (): void => {
     api.getTasks().then((tasks) => {
       const template = tasks.map(
-        (task) => `<div id="task-${task.id}" class="task-preview">${task.title}</div>`,
+        (task) =>
+          html`<div id="task-${task.id}" class="task-preview">${task.title}</div>`,
       );
-
-      this.component.innerHTML = template.join('');
+      render(template, this.component);
 
       tasks.forEach((task) => {
         const taskPreview = <HTMLDivElement>document.querySelector(`#task-${task.id}`);
@@ -27,7 +32,20 @@ export class TodoList extends Component<HTMLDivElement> {
     });
   };
 
-  public peekTask = (id: number): void => {
+  refresh = (): void => {
+    this.clearOut();
+    this.render();
+  };
+
+  clearOut = (): void => {
+    render(document.createElement('div'), this.component);
+  };
+
+  public peekTask = (id: number | undefined): void => {
+    if (!id) {
+      return;
+    }
+
     api.getTaskById(id).then((task) => {
       new Task(task).render();
       if (!this.windowMedia.matches) {
@@ -60,7 +78,7 @@ export class TodoList extends Component<HTMLDivElement> {
     return (this.visible = true);
   };
 
-  restore = (): void => {
+  restoreDimensions = (): void => {
     this.windowMedia.addEventListener('change', () => {
       if (this.windowMedia.matches) {
         this.component.style.width = '25%';

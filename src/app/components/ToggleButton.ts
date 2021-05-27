@@ -14,7 +14,7 @@ export class ToggleButton extends Component<HTMLInputElement> implements Button 
     this.onClick(() => {
       const todoList = new TodoList('todo-list');
       todoList.toggle();
-      todoList.restore();
+      todoList.restoreDimentions();
     });
   };
 }

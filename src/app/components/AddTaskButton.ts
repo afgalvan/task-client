@@ -18,7 +18,7 @@ export class AddTaskButton extends Component<HTMLInputElement> implements Button
   public render = (): void => {
     this.onClick(() => {
       new AddTaskForm().render();
-      new TodoList('todo-list').hide();
+      new TodoList().hide();
     });
   };
 }
