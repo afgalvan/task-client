@@ -1,0 +1,32 @@
+// Chrome
+html {
+  scrollbar-face-color: $secondaryDark;
+  scrollbar-base-color: $secondaryDark;
+  scrollbar-3dlight-color: $secondaryDark;
+  scrollbar-highlight-color: $secondaryDark;
+  scrollbar-track-color: $primaryDark;
+  scrollbar-arrow-color: $primaryDark;
+  scrollbar-shadow-color: $secondaryDark;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+  height: 3px;
+}
+
+::-webkit-scrollbar-track-piece {
+  background-color: $primaryDark;
+}
+
+::-webkit-scrollbar-thumb {
+  height: 40px;
+  background-color: $secondaryDark;
+}
+
+::-webkit-scrollbar-corner {
+  background-color: $secondaryDark;
+}
+
+::-webkit-resizer {
+  background-color: $secondaryDark;
+}

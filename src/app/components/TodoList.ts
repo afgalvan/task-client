@@ -1,8 +1,8 @@
-import { html, render } from 'lit-html';
+import { render } from 'lit-html';
 import { Component } from './Component';
 import { singleton } from './Singleton';
-import { Task } from './Task';
 import api from '../controllers/task.controller';
+import { TaskPreview } from './TaskPreview';
 import './TodoList.scss';
 
 @singleton
@@ -19,21 +19,8 @@ export class TodoList extends Component<HTMLDivElement> {
 
   public render = (): void => {
     api.getTasks().then((tasks) => {
-      const template = tasks.map(
-        (task) =>
-          // prettier-ignore
-          html`
-          <div
-            id="task-${task.id}"
-            @click=${() => this.peekTask(task.id)}
-            class="task-preview"
-          >
-            <span class="preview-title">${task.title}</span>
-            <span class="options">
-              <span class="preview-update">📝</span>
-              <span class="preview-delete">🗑</span>
-            </span>
-          </div>`,
+      const template = tasks.map((task) =>
+        new TaskPreview(task).build(),
       );
 
       render(template, this.component);
@@ -48,18 +35,7 @@ export class TodoList extends Component<HTMLDivElement> {
     render(document.createElement('div'), this.component);
   };
 
-  public peekTask = (id: number | undefined): void => {
-    if (!id) {
-      return;
-    }
-
-    api.getTaskById(id).then((task) => {
-      new Task(task).render();
-      this.hide();
-    });
-  };
-
-  public toggle = (): boolean => {
+  toggle = (): boolean => {
     const transform = this.component.style.transform;
     this.component.style.width = '55%';
 
@@ -73,7 +49,7 @@ export class TodoList extends Component<HTMLDivElement> {
     return this.hide();
   };
 
-  public hide = (): boolean => {
+  hide = (): boolean => {
     if (this.isVisible && !this.windowMedia.matches) {
       this.curtain.style.display = 'none';
       this.component.style.transform = 'translateX(-100%)';

@@ -13,6 +13,10 @@
   @include animateAll(0.2s, ease-out);
   display: flex;
   overflow-y: auto;
+  // Firefox
+  scrollbar-color: $secondaryDark $primaryDark;
+  scrollbar-width: thin;
+  //
   flex-direction: column;
   text-align: center;
   z-index: 3;
@@ -20,26 +24,6 @@
   height: 89vh;
   width: 25%;
   background-color: $primaryDark;
-
-  .task-preview {
-    @include defaultTransition();
-    cursor: pointer;
-    display: flex;
-    justify-content: space-between;
-    padding: rem(10);
-    margin: rem(5);
-    border-radius: 5%;
-    color: white;
-
-    &:hover {
-      background-color: rgb(14, 14, 14);
-      color: $buttonColor;
-    }
-
-    &::selection {
-      color: $buttonColor;
-    }
-  }
 }
 
 @media (max-width: rem(1050)) {

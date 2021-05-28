@@ -22,7 +22,7 @@
       font-family: monospace;
       font-weight: bold;
       font-size: rem(16);
-      margin-top: rem(20);
+      margin-top: rem(15);
       margin-bottom: rem(5);
     }
 
@@ -55,13 +55,13 @@
     input[type='submit'] {
       @extend Button;
       width: 80%;
+      box-sizing: border-box;
       align-self: center;
       font-family: monospace;
       background-color: $secondaryColor;
       border-radius: rem(20);
       font-size: rem(18);
-      margin-top: rem(18);
-      margin-bottom: rem(8);
+      margin-top: rem(8);
 
       &:hover {
         background-color: $buttonColor;

@@ -14,7 +14,7 @@ export class Task extends Component<HTMLDivElement> {
 
   public render = (): void => {
     if (this.task !== undefined) {
-      render(this.buildTask(this.task), this.taskZone);
+      this.renderTask(this.task);
     }
   };
 
@@ -26,7 +26,7 @@ export class Task extends Component<HTMLDivElement> {
     const state = task.state ? '✅' : '⭕';
     // prettier-ignore
     return html`
-    <div class="Task">
+    <div class="Task" id="displayed-task-${task.id}">
       <div class="options">
         <span class="close" title="Close task"
         @click=${() => render(document.createElement('div'), this.taskZone)}>x</span>

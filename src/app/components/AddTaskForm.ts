@@ -1,9 +1,9 @@
 import { html, render, TemplateResult } from 'lit-html';
+import { TodoList } from './TodoList';
 import { Component } from './Component';
 import { singleton } from './Singleton';
 import api from '../controllers/task.controller';
 import './AddTaskForm.scss';
-import { TodoList } from './TodoList';
 
 @singleton
 export class AddTaskForm extends Component<HTMLFormElement> {
@@ -27,7 +27,7 @@ export class AddTaskForm extends Component<HTMLFormElement> {
         <input type="text" name="title" placeholder="Enter a task title">
 
         <label for="content">Description</label>
-        <textarea type="text" name="content" placeholder="Enter a task description"></textarea>
+        <textarea type="text" name="content" rows="3" placeholder="Enter a task description"></textarea>
         <input type="hidden" name="state" value="false">
         <input type="hidden" name="priority" value="1">
 

@@ -1,0 +1,23 @@
+@import '../utilities';
+
+.task-preview {
+  @include defaultTransition();
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  padding: rem(10);
+  margin: rem(5);
+  border-radius: 5%;
+  color: white;
+
+  &:hover {
+    background-color: rgb(14, 14, 14);
+    color: $buttonColor;
+  }
+
+  .preview-title {
+    &::selection {
+      color: $buttonColor;
+    }
+  }
+}
