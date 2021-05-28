@@ -3,7 +3,6 @@
     "target": "es2019",
     "module": "commonjs",
     "strict": true,
-    "sourceMap": true,
     "noImplicitAny": true,
     "noImplicitThis": true,
     "alwaysStrict": true,
