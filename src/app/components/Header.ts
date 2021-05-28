@@ -1,7 +1,7 @@
 import { Component } from './Component';
 import { AddTaskButton } from './AddTaskButton';
 import { ToggleButton } from './ToggleButton';
-import { singleton } from './Singleton';
+import { singleton } from '../models/singleton';
 import './Header.scss';
 
 @singleton

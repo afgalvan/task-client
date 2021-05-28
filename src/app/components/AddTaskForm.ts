@@ -1,7 +1,7 @@
 import { html, render, TemplateResult } from 'lit-html';
 import { TodoList } from './TodoList';
 import { Component } from './Component';
-import { singleton } from './Singleton';
+import { singleton } from '../models/singleton';
 import api from '../controllers/task.controller';
 import './AddTaskForm.scss';
 

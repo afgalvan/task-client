@@ -1,6 +1,6 @@
 import { render } from 'lit-html';
 import { Component } from './Component';
-import { singleton } from './Singleton';
+import { singleton } from '../models/singleton';
 import api from '../controllers/task.controller';
 import { TaskPreview } from './TaskPreview';
 import './TodoList.scss';

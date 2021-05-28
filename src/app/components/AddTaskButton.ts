@@ -1,6 +1,6 @@
 import { Button } from './Button';
 import { Component } from './Component';
-import { singleton } from './Singleton';
+import { singleton } from '../models/singleton';
 import { AddTaskForm } from './AddTaskForm';
 import { TodoList } from './TodoList';
 import './AddTaskButton.scss';
