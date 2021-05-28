@@ -9,6 +9,10 @@ module.exports = merge(common, {
   mode: 'production',
   devtool: 'source-map',
   plugins: [
+    new Dotenv({
+      path: './.prod.env',
+      safe: true,
+    }),
     new MiniCssExtractPlugin({
       filename: 'css/app.bundle.css',
     }),
