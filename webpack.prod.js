@@ -10,7 +10,7 @@ module.exports = merge(common, {
   devtool: 'source-map',
   plugins: [
     new Dotenv({
-      path: './.prod.env',
+      path: './.env',
       safe: true,
     }),
     new MiniCssExtractPlugin({
