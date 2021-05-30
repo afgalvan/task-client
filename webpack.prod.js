@@ -5,12 +5,14 @@ const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const Dotenv = require('dotenv-webpack');
 
+const dotenvPath = `./${process.env.NODE_ENV}.env`;
+
 module.exports = merge(common, {
   mode: 'production',
   devtool: 'source-map',
   plugins: [
     new Dotenv({
-      path: './.env',
+      path: dotenvPath,
       safe: true,
     }),
     new MiniCssExtractPlugin({

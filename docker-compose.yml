@@ -11,14 +11,3 @@ services:
     ports:
       - 4000:4000
     command: bash -c "yarn build && yarn start"
-
-  httpd:
-    image: nginx:1.20-alpine
-    restart: always
-    ports:
-      - 80:80
-      - 443:443
-    volumes:
-      - ./nginx/conf.d:/etc/nginx/conf.d
-    depends_on:
-      - frontend

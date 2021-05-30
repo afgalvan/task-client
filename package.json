@@ -5,7 +5,7 @@
   "private": true,
   "scripts": {
     "deploy": "vercel --prod",
-    "dev": "webpack serve --open --config webpack.dev.js",
+    "dev": "webpack serve --open --host=0.0.0.0 --public=localhost:8080 --config webpack.dev.js",
     "clean:js": "rm src/app/*.js && rm src/app/**/*.js",
     "build:tsc": "tsc -p tsconfig.json",
     "build": "yarn build:tsc && webpack --config webpack.prod.js && yarn clean:js",

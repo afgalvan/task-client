@@ -14,6 +14,6 @@ module.exports = merge(common, {
   target: 'web',
   devServer: {
     port: 4000,
-    contentBase: './dist',
+    contentBase: './build',
   },
 });
