@@ -13,7 +13,7 @@ module.exports = merge(common, {
   ],
   target: 'web',
   devServer: {
-    port: 4000,
+    port: 3000,
     contentBase: './build',
   },
 });

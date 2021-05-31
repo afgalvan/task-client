@@ -3,11 +3,12 @@ version: '3.3'
 
 services:
   frontend:
-    container_name: spring-task-app-client
+    container_name: spring-task-dev-client
     restart: always
     build: .
     volumes:
       - ./src:/app/src
+      - ./webpack.dev.js:/app/webpack.dev.js
     ports:
-      - 4000:4000
-    command: bash -c "yarn build && yarn start"
+      - 3000:3000
+    command: bash -c "yarn build:tsc && yarn dev"
