@@ -2,6 +2,8 @@ FROM node:12.16.3-slim
 
 WORKDIR /app
 
-COPY ./ /app/
+COPY ./package.json yarn.lock ./
 
 RUN yarn
+
+COPY . .
