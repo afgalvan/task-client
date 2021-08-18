@@ -2,7 +2,7 @@ import { TaskModel } from '../models/TaskModel';
 import { API_URL } from '../config/config';
 
 class Api {
-  private API_URL;
+  private API_URL: string;
 
   constructor() {
     this.API_URL = API_URL + '/tasks';

@@ -5,7 +5,8 @@ const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const Dotenv = require('dotenv-webpack');
 
-const dotenvPath = `./${process.env.NODE_ENV}.env`;
+const env = process.env.NODE_ENV?.toLowerCase();
+const dotenvPath = `./${env}.env`;
 
 module.exports = merge(common, {
   mode: 'production',
